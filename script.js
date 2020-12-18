@@ -5,7 +5,13 @@ let textField = document.querySelector("#text-field");
 let searchButtonEl = document.querySelector("#search-button");
 let textButtonEl = document.querySelector("#text-button")
 
-// let textField = "";
+let textFieldTest = "Test Test Test";
+
+renderTextField();
+
+function renderTextField() {
+    textField.textContent = textFieldTest
+}
 
 searchButtonEl.addEventListener("click", function(event){
     event.preventDefault();
@@ -13,6 +19,10 @@ searchButtonEl.addEventListener("click", function(event){
 
     let searchText = searchInput.value.trim();
     let replaceText = replaceInput.value.trim();
+
+    // clear input fields
+    searchInput.value = "";
+    replaceInput.value = "";
 
     console.log(searchText);
     console.log(replaceText);
@@ -23,36 +33,13 @@ textButtonEl.addEventListener("click", function(event){
     event.preventDefault();
     console.log("clicked!");
 
-    let searchText = textInput.value.trim();
-    // textField.push.
-    console.log(searchText);
+    let inputText = textInput.value.trim();
+    console.log(inputText);
 
-    textField.textContent = searchText
+    // change display text, clear input field
+    textFieldTest = inputText;
+    textInput.value = "";
+
+    renderTextField();
 
 });
-
-// function renderText() {
-//     // textField.innerHTML = "";
-//     textField.textContent
-// }
-
-// function renderTodos() {
-//   // Clear todoList element and update todoCountSpan
-//   todoList.innerHTML = "";
-//   todoCountSpan.textContent = todos.length;
-
-//   // Render a new li for each todo
-//   for (var i = 0; i < todos.length; i++) {
-//     var todo = todos[i];
-
-//     var li = document.createElement("li");
-//     li.textContent = todo;
-//     li.setAttribute("data-index", i);
-
-//     var button = document.createElement("button");
-//     button.textContent = "Complete";
-
-//     li.appendChild(button);
-//     todoList.appendChild(li);
-//   }
-// }
