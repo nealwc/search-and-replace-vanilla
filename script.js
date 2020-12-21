@@ -1,45 +1,46 @@
-let searchInput = document.querySelector("#search-text");
-let replaceInput = document.querySelector("#replace-text");
+let search = document.querySelector("#search");
+let replace = document.querySelector("#replace");
 let textInput = document.querySelector("#input-text");
 let textField = document.querySelector("#text-field");
-let searchButtonEl = document.querySelector("#search-button");
-let textButtonEl = document.querySelector("#text-button")
+let searchButton = document.querySelector("#search-button");
+let textButton = document.querySelector("#text-button")
 
-let textFieldTest = "Test Test Test";
+let searchField = "Test tests testes";
 
-renderTextField();
+renderSearchField();
 
-function renderTextField() {
-    textField.textContent = textFieldTest
+function renderSearchField() {
+    textField.textContent = searchField
 }
 
-searchButtonEl.addEventListener("click", function(event){
+// search and replace function when "Enter" button is clicked
+searchButton.addEventListener("click", function(event){
     event.preventDefault();
-    console.log("clicked!");
 
-    let searchText = searchInput.value.trim();
-    let replaceText = replaceInput.value.trim();
+    let searchText = search.value.trim();
+    let replaceText = replace.value.trim();
 
     // clear input fields
-    searchInput.value = "";
-    replaceInput.value = "";
+    searchText.value = "";
+    replaceText.value = "";
 
-    console.log(searchText);
-    console.log(replaceText);
+    searchField = searchField.replace(searchText, replaceText);
+
+    renderSearchField();
 
 });
 
-textButtonEl.addEventListener("click", function(event){
+// 
+textButton.addEventListener("click", function(event){
     event.preventDefault();
-    console.log("clicked!");
 
-    let inputText = textInput.value.trim();
-    console.log(inputText);
+    let newText = textInput.value.trim();
+    console.log(newText);
 
     // change display text, clear input field
-    textFieldTest = inputText;
+    searchField = newText;
     textInput.value = "";
 
-    renderTextField();
+    renderSearchField();
 
 });
