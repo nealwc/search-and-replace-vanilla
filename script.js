@@ -5,10 +5,11 @@ let textField = document.querySelector("#text-field");
 let searchButton = document.querySelector("#search-button");
 let textButton = document.querySelector("#text-button")
 
-let searchField = "Lorem test ipsum dolor sit amet, consectetur test adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+let searchField = "Sometimes I’ll start a sentence and I don’t even know where it’s going. I just hope I find it along the way. - Michael Scott";
 
 renderSearchField();
 
+// displays value in searchField
 function renderSearchField() {
     textField.textContent = searchField
 }
@@ -21,10 +22,10 @@ searchButton.addEventListener("click", function(event){
     let replaceText = replace.value.trim();
 
     // clear input fields
-    searchText.value = "";
-    replaceText.value = "";
+    search.value = "";
+    replace.value = "";
 
-    // while loop to check for all instances of the searchText in the searchField
+    // checks for all instances of the searchText in searchField and replaces with replaceText
     while(searchField.indexOf(searchText) != -1){
     searchField = searchField.replace(searchText, replaceText)
     };
@@ -44,7 +45,6 @@ textButton.addEventListener("click", function(event){
     searchField = newText;
     textInput.value = "";
 
-    // display searchField with new value
     renderSearchField();
 
 });
