@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    font-size: 18px;
+}
+
+.wrapper {
+  width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center
+}
+
+#search,
+#replace,
+#input-text {
+  margin-bottom: 20px;
+}
+
+#search-button,
+#text-button {
+  margin-bottom: 20px;
+}
+

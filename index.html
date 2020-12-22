@@ -4,29 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
     <title>Search and Replace</title>
 </head>
 
 <body>
-
-    <h1>Search and Replace</h1>
-    <form>
-    <div>
-        <label>Search:</label>
-        <input type="text" id="search">
-        Replace: <input type="text" id="replace">
-        <button id="search-button">Enter</button>
+    <div class="wrapper">
+        <h1>Search and Replace</h1>
+        <form>
+            <div>
+                <label>Search:</label>
+                <input type="text" id="search" />
+            </div>
+            <div>
+                <label>Replace: </label>
+                <input type="text" id="replace" />
+            </div>
+            <div>
+                <button id="search-button">Enter</button>
+            </div>
+        </form>
+        <form>
+            <div>
+                <label> Enter your own text to display:</label>
+                <!-- <input type="text" id="input-text" /> -->
+                <textarea id="input-text" rows="4" cols="50"></textarea>
+            </div>
+            <div>
+                <button id="text-button">Enter</button>
+            </div>
+        </form>
+        <div id="text-field">
+        </div>
     </div>
-    </form>
-
-    <div>
-        Input some text to display: <input type="text" id="input-text">
-        <button id="text-button">Enter</button>
-    </div>
-
-    <div id="text-field">
-    </div>
-
     <script src="./script.js"></script>
 </body>
 
