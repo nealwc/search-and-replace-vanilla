@@ -13,7 +13,7 @@ function renderSearchField() {
     textField.textContent = searchField
 }
 
-// search and replace function when "Enter" button is clicked
+// search and replace function when searchButton is clicked
 searchButton.addEventListener("click", function(event){
     event.preventDefault();
 
@@ -24,6 +24,7 @@ searchButton.addEventListener("click", function(event){
     searchText.value = "";
     replaceText.value = "";
 
+    // while loop to check for all instances of the searchText in the searchField
     while(searchField.indexOf(searchText) != -1){
     searchField = searchField.replace(searchText, replaceText)
     };
@@ -32,7 +33,7 @@ searchButton.addEventListener("click", function(event){
 
 });
 
-// 
+// replace searchField when textButton it clicked
 textButton.addEventListener("click", function(event){
     event.preventDefault();
 
@@ -43,6 +44,7 @@ textButton.addEventListener("click", function(event){
     searchField = newText;
     textInput.value = "";
 
+    // display searchField with new value
     renderSearchField();
 
 });
