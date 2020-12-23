@@ -15,7 +15,7 @@ function renderSearchField() {
 }
 
 // search and replace function when searchButton is clicked
-searchButton.addEventListener("click", function(event){
+searchButton.addEventListener("click", function (event) {
     event.preventDefault();
 
     let searchText = search.value.trim();
@@ -25,17 +25,21 @@ searchButton.addEventListener("click", function(event){
     search.value = "";
     replace.value = "";
 
-    // checks for all instances of the searchText in searchField and replaces with replaceText
-    while(searchField.indexOf(searchText) != -1){
-    searchField = searchField.replace(searchText, replaceText)
-    };
+    if (searchText === replaceText) {
+        return
+    } else {
+        // checks for all instances of the searchText in searchField and replaces with replaceText
+        while (searchField.indexOf(searchText) != -1) {
+            searchField = searchField.replace(searchText, replaceText)
+        };
+    }
 
     renderSearchField();
 
 });
 
 // replace searchField when textButton it clicked
-textButton.addEventListener("click", function(event){
+textButton.addEventListener("click", function (event) {
     event.preventDefault();
 
     let newText = textInput.value.trim();
