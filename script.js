@@ -18,20 +18,33 @@ function renderSearchField() {
 searchButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    let searchText = search.value.trim();
+    let searchText = search.value.trim().toLowerCase();
     let replaceText = replace.value.trim();
 
     // clear input fields
-    search.value = "";
-    replace.value = "";
+    // search.value = "";
+    // replace.value = "";
 
     if (searchText === replaceText) {
+        alert("Search and Replace text matches")
         return
-    } else {
+    }
+    else if (searchText == "") {
+        alert("Please input a text to search")
+        return
+    }
+    else if (replaceText == "") {
+        alert("Please input a text to replace")
+        return
+    }
+    else {
         // checks for all instances of the searchText in searchField and replaces with replaceText
         while (searchField.indexOf(searchText) != -1) {
             searchField = searchField.replace(searchText, replaceText)
         };
+        // clear input fields
+        search.value = "";
+        replace.value = "";
     }
 
     renderSearchField();
