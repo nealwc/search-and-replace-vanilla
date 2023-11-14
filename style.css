@@ -27,7 +27,18 @@ h1 {
 #search-button,
 #text-button,
 #clear-button {
+  outline-color: transparent;
   margin-bottom: 20px;
+}
+
+#search-button:hover,
+#text-button:hover,
+#clear-button:hover {
+  color: white;
+  background-color: #002ead;
+  /*
+  transition: 0.5s;
+  */
 }
 
 #text-field {

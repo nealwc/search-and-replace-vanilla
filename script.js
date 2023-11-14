@@ -4,15 +4,19 @@ let textInput = document.querySelector("#input-text");
 let textField = document.querySelector("#text-field");
 let searchButton = document.querySelector("#search-button");
 let clearButton = document.querySelector("#clear-button");
-let textButton = document.querySelector("#text-button")
-
+let textButton = document.querySelector("#text-button");
+let replaceCountField = document.querySelector("#replace-count");
+let replaceCountNum = 0;
+let replaceCount;
 let searchField = "Sometimes I’ll start a sentence and I don’t even know where it’s going. I just hope I find it along the way. - Michael Scott";
 
-renderSearchField();
+renderSearchAndCountFields();
 
 // displays value in searchField
-function renderSearchField() {
-    textField.textContent = searchField
+function renderSearchAndCountFields() {
+    replaceCount = "Replacement Count: " + replaceCountNum;
+    textField.textContent = searchField;
+    replaceCountField.textContent = replaceCount
 }
 
 // clear input fields
@@ -44,15 +48,20 @@ searchButton.addEventListener("click", function (event) {
     }
     else {
         // checks for all instances of the searchText in searchField and replaces with replaceText
+        replaceCountNum = 0;
         while (searchField.indexOf(searchText) != -1) {
-            searchField = searchField.replace(searchText, replaceText)
+            searchField = searchField.replace(searchText, replaceText);
+            replaceCountNum++;
+            console.log(replaceCount);
+            console.log(replaceCountNum);
+            console.log(replaceCount);
         };
         // clear input fields
         search.value = "";
         replace.value = "";
     }
 
-    renderSearchField();
+    renderSearchAndCountFields();
 
 });
 
@@ -67,6 +76,6 @@ textButton.addEventListener("click", function (event) {
     searchField = newText;
     textInput.value = "";
 
-    renderSearchField();
+    renderSearchAndCountFields();
 
 });
