@@ -47,8 +47,11 @@ searchButton.addEventListener("click", function (event) {
         return
     }
     else {
-        // checks for all instances of the searchText in searchField and replaces with replaceText
+        // Clear count and check for for all instances of the searchText in searchField
         replaceCountNum = 0;
+        replaceCountNum = searchField.split(searchText).length - 1;
+
+        // checks for all instances of the searchText in searchField and replaces with replaceText
         searchField = searchField.replaceAll(searchText, replaceText);
 
         // clear input fields
