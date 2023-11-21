@@ -31,7 +31,7 @@ clearButton.addEventListener("click", function (event) {
 searchButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    let searchText = search.value.trim().toLowerCase();
+    let searchText = search.value.trim();
     let replaceText = replace.value.trim();
 
     if (searchText === replaceText) {
@@ -49,13 +49,8 @@ searchButton.addEventListener("click", function (event) {
     else {
         // checks for all instances of the searchText in searchField and replaces with replaceText
         replaceCountNum = 0;
-        while (searchField.indexOf(searchText) != -1) {
-            searchField = searchField.replace(searchText, replaceText);
-            replaceCountNum++;
-            console.log(replaceCount);
-            console.log(replaceCountNum);
-            console.log(replaceCount);
-        };
+        searchField = searchField.replaceAll(searchText, replaceText);
+
         // clear input fields
         search.value = "";
         replace.value = "";
@@ -70,7 +65,6 @@ textButton.addEventListener("click", function (event) {
     event.preventDefault();
 
     let newText = textInput.value.trim();
-    console.log(newText);
 
     // change display text, clear input field
     searchField = newText;
